@@ -4,7 +4,7 @@
       Output: product line totals (double)
 */
 function calculateProdTotal (price, quantity) {
-    return 0;   // replace this!
+    return (price * quantity);
 }
 
 /* 2. Complete the function below to calculate gross cart totals
@@ -16,7 +16,7 @@ function calculateProdTotal (price, quantity) {
             always have 3 elements (i.e., bananas, oranges, apples)
 */
 function calculateSubtotal (prodTotals) {
-    return 0;   // replace this!
+    return (subtotalBananas+subtotalApples+subtotalOranges);   // replace this!
 }
 
 /* 3. Complete the function below to calculate added taxes
@@ -25,7 +25,7 @@ function calculateSubtotal (prodTotals) {
       Output: added taxes for the cart (double)
 */
 function calculateTaxes(grossTotal, taxRate) {
-    return 0;   // replace this!
+    return (grossTotal*taxRate);   // replace this!
 }
 
 /* 4. Complete the function below to calculate total
@@ -35,7 +35,7 @@ function calculateTaxes(grossTotal, taxRate) {
       Output: total cart amount inclusive of shipping and taxes (double)
 */
 function calculateTotal (grossTotal, addedShipping, addedTax) {
-    return 0;   // replace this!
+    return (grossTotal+addedShipping+addedTax);   // replace this!
 }
 
 /* 5. We want to inform the users when certain items run out of stock
@@ -61,6 +61,13 @@ function calculateTotal (grossTotal, addedShipping, addedTax) {
             the label will change font color based on selection (green, yellow, red)
 
 */
+
 function updateProdAvailability(product, selected, availability) {
-    return; // replace this!
+    if (availability - selected > 10) {
+        updateProdAvailabilityLabel(product, "in stock", AVAILABLE);
+    } else if ((availability - selected <= 10) && (availability - selected > 0)) {
+        updateProdAvailabilityLabel(product, "limited supply", LIMITED_SUPPLY);
+    } else if (availability - selected <= 0) {
+        updateProdAvailabilityLabel(product, "out of stock", OUT_OF_STOCK);
+    };
 }
